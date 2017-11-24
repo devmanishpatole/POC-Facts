@@ -27,6 +27,7 @@ public class MainActivity extends BaseActivity<FactFeedsPresenterImpl> implement
   private static final String TAG = MainActivity.class.getSimpleName();
   private RecyclerView rvFactList;
   private TextView tvNoFeedsAvailableMessage;
+  private FactFeedAdapter mFactFeedAdapter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,15 @@ public class MainActivity extends BaseActivity<FactFeedsPresenterImpl> implement
     final Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
     setSupportActionBar(toolbar);
     getSupportActionBar().setTitle(getString(R.string.fetching_fact_feeds));
+
+
+    mFactFeedAdapter = new FactFeedAdapter(null);
+    rvFactList.setLayoutManager(new LinearLayoutManager(this));
+    rvFactList.setHasFixedSize(true);
+    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
+        DividerItemDecoration.VERTICAL);
+    rvFactList.addItemDecoration(dividerItemDecoration);
+    rvFactList.setAdapter(mFactFeedAdapter);
   }
 
   @Override
@@ -91,12 +101,7 @@ public class MainActivity extends BaseActivity<FactFeedsPresenterImpl> implement
     } else {
       rvFactList.setVisibility(View.VISIBLE);
       tvNoFeedsAvailableMessage.setVisibility(View.GONE);
-      rvFactList.setLayoutManager(new LinearLayoutManager(this));
-      rvFactList.setHasFixedSize(true);
-      DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
-          DividerItemDecoration.VERTICAL);
-      rvFactList.addItemDecoration(dividerItemDecoration);
-      rvFactList.setAdapter(new FactFeedAdapter(fact.getRows()));
+      mFactFeedAdapter.refreshList(fact.getRows());
     }
   }
 
