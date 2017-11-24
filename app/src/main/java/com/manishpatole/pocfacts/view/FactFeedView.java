@@ -24,4 +24,10 @@ public interface FactFeedView extends IView {
    * @param error - to display.
    */
   void showError(String error);
+
+
+  /**
+   * Shows no feeds available error.
+   */
+  void showNoFeedsAvailableError();
 }

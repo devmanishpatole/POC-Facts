@@ -6,7 +6,10 @@ import com.manishpatole.pocfacts.model.Fact;
 import com.manishpatole.pocfacts.network.service.FactFeedService;
 import com.manishpatole.pocfacts.network.service.FactFeedServiceImpl;
 import com.manishpatole.pocfacts.network.service.OnDataFetchResponse;
+import com.manishpatole.pocfacts.utility.CollectionUtil;
 import com.manishpatole.pocfacts.view.FactFeedView;
+
+import java.util.Collections;
 
 /**
  * Implements Fact feeds presenter.
@@ -29,6 +32,10 @@ public class FactFeedsPresenterImpl implements FactFeedsPresenter, OnDataFetchRe
    */
   @Override
   public void getFactFeeds() {
+    if (null == factFeedView) {
+      return;
+    }
+    factFeedView.showLoading();
     factFeedService.fetchFactFeeds();
   }
 
@@ -37,6 +44,13 @@ public class FactFeedsPresenterImpl implements FactFeedsPresenter, OnDataFetchRe
     if (null == factFeedView) {
       return;
     }
+    factFeedView.hideLoading();
+    if (null == fact) {
+      factFeedView.showError(
+          POCFactApplication.getPocFactApplication().getString(R.string.something_went_wrong));
+      return;
+    }
+
     factFeedView.showFeeds(fact);
   }
 
@@ -45,6 +59,7 @@ public class FactFeedsPresenterImpl implements FactFeedsPresenter, OnDataFetchRe
     if (null == factFeedView) {
       return;
     }
+    factFeedView.hideLoading();
     factFeedView.showError(null != throwable ? throwable.getMessage() :
         POCFactApplication.getPocFactApplication().getString(R.string.something_went_wrong));
   }
