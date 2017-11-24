@@ -1,7 +1,5 @@
 package com.manishpatole.pocfacts.network.service;
 
-import com.manishpatole.pocfacts.model.Fact;
-
 /**
  * Callback to respond back with fact feeds.
  *

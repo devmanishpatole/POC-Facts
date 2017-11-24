@@ -1,15 +1,10 @@
 package com.manishpatole.pocfacts.utility;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Build;
-import android.util.Log;
-
-import com.manishpatole.pocfacts.R;
 
 /**
  * Utility class.

@@ -1,7 +1,6 @@
 package com.manishpatole.pocfacts.utility;
 
 import java.util.Collection;
-import java.util.Map;
 
 /**
  * Collection Utility.
