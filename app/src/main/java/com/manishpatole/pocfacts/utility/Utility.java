@@ -24,7 +24,7 @@ public class Utility {
 
 
   /**
-   * Checks internet.
+   * Checks internet connectivity.
    *
    * @param context - live context.
    * @return - status of internet.

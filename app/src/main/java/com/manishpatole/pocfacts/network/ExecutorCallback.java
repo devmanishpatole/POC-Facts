@@ -1,6 +1,8 @@
 package com.manishpatole.pocfacts.network;
 
 
+import com.manishpatole.pocfacts.network.service.OnDataFetchResponse;
+
 import java.net.HttpURLConnection;
 
 import retrofit2.Call;
@@ -15,9 +17,9 @@ import retrofit2.Response;
 
 public class ExecutorCallback<T> implements Callback<T> {
 
-  private OnServerCallResponse onServerCallResponse;
+  private OnDataFetchResponse onServerCallResponse;
 
-  public ExecutorCallback(OnServerCallResponse onServerCallResponse) {
+  public ExecutorCallback(OnDataFetchResponse onServerCallResponse) {
     this.onServerCallResponse = onServerCallResponse;
   }
 
@@ -38,14 +40,6 @@ public class ExecutorCallback<T> implements Callback<T> {
     if (null != onServerCallResponse) {
       onServerCallResponse.onFailure(t);
     }
-  }
-
-  public interface OnServerCallResponse<T> {
-    void onSuccess(T response);
-
-    void onFailure(Throwable throwable);
-
-    void onFailure();
   }
 
 }

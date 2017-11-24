@@ -6,4 +6,5 @@ package com.manishpatole.pocfacts.base;
  * @author manishpatole
  */
 public interface IPresenter {
+//Marker interface
 }
