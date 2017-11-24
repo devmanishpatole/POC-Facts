@@ -4,4 +4,10 @@
     <string name="loading">loading</string>
     <string name="error">Error</string>
     <string name="no_internet">No Internet connection</string>
+    <string name="fetching_fact_feeds">Fetching fact feeds..</string>
+    <string name="content_description">Content description</string>
+    <string name="no_title">No Title</string>
+    <string name="no_description">No Description</string>
+    <string name="no_data_available">No Data Available</string>
+    <string name="refresh">refresh</string>
 </resources>
