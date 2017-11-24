@@ -6,7 +6,6 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -94,7 +93,6 @@ public class MainActivity extends BaseActivity<FactFeedsPresenterImpl> implement
    */
   @Override
   public void showFeeds(Fact fact) {
-    Log.e(TAG, fact.getTitle());
     getSupportActionBar().setTitle(fact.getTitle());
     if (CollectionUtil.isEmpty(fact.getRows())) {
       showNoFeedsAvailableError();

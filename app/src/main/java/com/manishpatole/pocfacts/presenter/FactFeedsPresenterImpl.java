@@ -6,10 +6,7 @@ import com.manishpatole.pocfacts.model.Fact;
 import com.manishpatole.pocfacts.network.service.FactFeedService;
 import com.manishpatole.pocfacts.network.service.FactFeedServiceImpl;
 import com.manishpatole.pocfacts.network.service.OnDataFetchResponse;
-import com.manishpatole.pocfacts.utility.CollectionUtil;
 import com.manishpatole.pocfacts.view.FactFeedView;
-
-import java.util.Collections;
 
 /**
  * Implements Fact feeds presenter.
