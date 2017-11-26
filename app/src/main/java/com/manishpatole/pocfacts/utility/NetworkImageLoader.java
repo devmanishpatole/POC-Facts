@@ -47,15 +47,12 @@ public class NetworkImageLoader {
     picasso.into(mImageView, new Callback() {
       @Override
       public void onSuccess() {
-        Picasso.with(mContext)
-            .load(mUrl)
-            .error(R.drawable.ic_error)
-            .into(mImageView);
+        //No Implementation.
       }
 
       @Override
       public void onError() {
-
+        Picasso.with(mContext).load(mUrl).into(mImageView);
       }
     });
   }
