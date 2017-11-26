@@ -50,17 +50,7 @@ public class NetworkImageLoader {
         Picasso.with(mContext)
             .load(mUrl)
             .error(R.drawable.ic_error)
-            .into(mImageView, new Callback() {
-              @Override
-              public void onSuccess() {
-
-              }
-
-              @Override
-              public void onError() {
-                Log.v("Picasso", "Could not fetch image");
-              }
-            });
+            .into(mImageView);
       }
 
       @Override
