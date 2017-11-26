@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.manishpatole.pocfacts.R;
 import com.manishpatole.pocfacts.model.Row;
-import com.squareup.picasso.Picasso;
+import com.manishpatole.pocfacts.utility.NetworkImageLoader;
 
 import java.util.List;
 
@@ -36,7 +36,7 @@ public class FactFeedAdapter extends RecyclerView.Adapter<FactFeedAdapter.ViewHo
   }
 
   @Override
-  public void onBindViewHolder(ViewHolder holder, int position) {
+  public void onBindViewHolder(final ViewHolder holder, final int position) {
 
     final Row row = mFeedRows.get(position);
     final Context context = holder.ivFeedImage.getContext();
@@ -45,10 +45,10 @@ public class FactFeedAdapter extends RecyclerView.Adapter<FactFeedAdapter.ViewHo
     setRowDescription(holder.tvDescription, row.getDescription(), context);
 
     //Loads the image.
-    Picasso.with(context)
-        .load(row.getImageHref())
-        .error(R.drawable.ic_error).placeholder(R.drawable.ic_loading)
-        .into(holder.ivFeedImage);
+    final NetworkImageLoader networkImageLoader =
+        new NetworkImageLoader.ImageLoaderBuilder(row.getImageHref(), context,
+            holder.ivFeedImage).build();
+    networkImageLoader.load();
   }
 
   /**
